@@ -13,69 +13,23 @@
             --light: #f4f7f6;
             --white: #ffffff;
             --text: #333;
-            --gray: #7f8c8d;
         }
 
         * { box-sizing: border-box; }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            color: var(--text);
-            scroll-behavior: smooth;
-        }
+        body { font-family: 'Montserrat', sans-serif; line-height: 1.7; margin: 0; color: var(--text); scroll-behavior: smooth; }
 
         /* Навігація */
-        header {
-            background: var(--white);
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
+        header { background: var(--white); box-shadow: 0 2px 15px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
+        nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 15px 20px; }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); text-decoration: none; }
+        .nav-links { display: flex; list-style: none; gap: 25px; margin: 0; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 15px 20px;
-        }
-
-        .logo {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--primary);
-            text-decoration: none;
-            letter-spacing: -1px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-            margin: 0;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover { color: var(--primary); }
-
-        /* Hero Секція */
+        /* Hero Секція з вашим фото (міст або ліс) */
         .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(0,40,85,0.85), rgba(0,40,85,0.85)), 
-                        url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1920&q=80');
+            height: 90vh;
+            background: linear-gradient(rgba(0,40,85,0.7), rgba(0,40,85,0.7)), 
+                        url('photo_5420213672488930108_y.jpg'); /* ВСТАВТЕ ШЛЯХ ДО ФОТО З МОСТОМ */
             background-size: cover;
             background-position: center;
             display: flex;
@@ -85,72 +39,45 @@
             color: var(--white);
             text-align: center;
             padding: 0 20px;
-            margin-top: 60px;
         }
+        .hero h1 { font-size: 3.2rem; max-width: 900px; margin-bottom: 20px; }
+        .quote-box { background: rgba(255, 215, 0, 0.2); padding: 20px; border-left: 5px solid var(--accent); backdrop-filter: blur(5px); }
 
-        .hero h1 { font-size: 3rem; max-width: 900px; margin-bottom: 20px; line-height: 1.2; }
-        .hero p { font-size: 1.2rem; max-width: 700px; margin-bottom: 30px; opacity: 0.9; }
+        /* Секції */
+        section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; color: var(--primary); }
+        
+        /* Про нас з ілюстрацією */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .about-img img { width: 100%; border-radius: 15px; box-shadow: 20px 20px 0 var(--accent); }
 
-        .quote-box {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px 40px;
-            border-left: 5px solid var(--accent);
-            backdrop-filter: blur(5px);
-            max-width: 600px;
-        }
-
-        /* Про нас */
-        section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
-        .section-title { text-align: center; margin-bottom: 50px; }
-        .section-title h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 10px; }
-        .section-title .divider { width: 60px; height: 4px; background: var(--accent); margin: 0 auto; }
-
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .about-content p { margin-bottom: 20px; text-align: justify; }
-
-        /* Напрямки (Cards) */
+        /* Галерея/Напрямки */
         .features { background: var(--light); max-width: 100%; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-        .card:hover { transform: translateY(-10px); }
-        .card h3 { color: var(--primary); margin-top: 0; }
-
-        /* Статистика */
-        .stats { background: var(--primary); color: var(--white); text-align: center; max-width: 100%; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
-        .stat-item h2 { font-size: 3rem; margin: 0; color: var(--accent); }
-
-        /* Форма */
-        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
-        .form-card { background: var(--white); padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        input, textarea { width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; }
+        .card { background: var(--white); padding: 30px; border-radius: 12px; border-bottom: 5px solid var(--primary); }
         
-        .btn {
-            background: var(--primary);
-            color: var(--white);
-            padding: 15px 35px;
-            border: none;
-            border-radius: 6px;
-            font-weight: 700;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: 0.3s;
-            display: inline-block;
-            text-decoration: none;
+        /* Секція Єдності (фото з руками) */
+        .unity-section {
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
+                        url('photo_5420213672488930109_y.jpg'); /* ФОТО З РУКАМИ */
+            background-size: cover;
+            text-align: center;
+            padding: 120px 20px;
         }
-        .btn:hover { background: #004494; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
-        footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 50px 20px; text-align: center; }
-        
+        /* Контакти */
+        .contact-container { display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; background: var(--white); padding: 40px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+        input, textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #eee; border-radius: 8px; background: #f9f9f9; }
+        .btn { background: var(--primary); color: white; padding: 18px 40px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; text-transform: uppercase; transition: 0.3s; }
+        .btn:hover { transform: scale(1.05); background: #004494; }
+
+        footer { background: var(--dark); color: white; padding: 60px 20px; text-align: center; }
+        .footer-logo { font-size: 1.8rem; font-weight: 700; color: var(--accent); margin-bottom: 20px; display: block; }
+
         @media (max-width: 768px) {
             .about-grid, .contact-container { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2rem; }
+            .hero h1 { font-size: 2.2rem; }
             .nav-links { display: none; }
         }
     </style>
@@ -162,7 +89,7 @@
         <a href="#" class="logo">ЄДИНА-УКРАЇНА</a>
         <ul class="nav-links">
             <li><a href="#about">Про нас</a></li>
-            <li><a href="#focus">Напрямки</a></li>
+            <li><a href="#focus">Завдання</a></li>
             <li><a href="#partnership">Партнерство</a></li>
             <li><a href="#join">Долучитися</a></li>
             <li><a href="#contact">Контакти</a></li>
@@ -171,133 +98,91 @@
 </header>
 
 <main>
-    <!-- HERO -->
-    <section class="hero">
-        <h1>Створюємо майбутнє українських громад разом</h1>
-        <p>Інновації, екологічна безпека та сталий розвиток для сильної країни.</p>
+    <section class="hero" id="home">
+        <h1>Створюємо умови для розвитку громад</h1>
         <div class="quote-box">
-            <p style="margin: 0; font-weight: 600; color: var(--accent);">«Справжня допомога - це створити умови, у яких люди можуть розвиватися самі.»</p>
+            <p style="margin: 0; font-size: 1.3rem; font-weight: 600;">«Справжня допомога - це створити умови, у яких люди можуть розвиватися самі.»</p>
         </div>
     </section>
 
-    <!-- ПРО НАС -->
     <section id="about">
         <div class="about-grid">
+            <div class="about-img">
+                <img src="photo_5420213672488930110_x.jpg" alt="Ілюстрація Єдина Україна">
+            </div>
             <div class="about-content">
-                <div class="section-title" style="text-align: left;">
-                    <h2>Хто ми є</h2>
-                    <div class="divider" style="margin: 0;"></div>
+                <div class="section-title" style="text-align: left; margin-bottom: 30px;">
+                    <h2 style="margin: 0;">Про нашу організацію</h2>
                 </div>
-                <p>Ми — громадська організація, що працює на перетині соціального розвитку, екологічних рішень і сучасних технологій. Наша мета — допомагати громадам в Україні створювати стійку інфраструктуру, підвищувати економічну спроможність і впроваджувати практичні рішення.</p>
-                <p>Ми будуємо екосистему, у якій інновації, відповідальне використання ресурсів і розвиток громад працюють разом для створення сучасної, конкурентоспроможної та екологічно безпечної України.</p>
-            </div>
-            <div style="background: var(--light); padding: 40px; border-radius: 12px;">
-                <h3 style="color: var(--primary);">Наша місія</h3>
-                <p>Розвиток громад через соціальні, екологічні та технологічні проєкти, що покращують якість життя та економічні можливості. Ми віримо в партнерство, а не в благодійність.</p>
+                <p>Ми працюємо на перетині соціального розвитку, екологічних рішень і сучасних технологій. Наша мета — допомагати громадам в Україні створювати стійку інфраструктуру та підвищувати економічну спроможність.</p>
+                <p>Ми будуємо екосистему, у якій інновації та відповідальне використання ресурсів працюють разом для створення конкурентоспроможної України.</p>
             </div>
         </div>
     </section>
 
-    <!-- СТАТИСТИКА (Візуальний акцент) -->
-    <section class="stats">
-        <div class="stats-grid">
-            <div class="stat-item">
-                <h2>01</h2>
-                <p>Екологічні рішення</p>
-            </div>
-            <div class="stat-item">
-                <h2>02</h2>
-                <p>Інфраструктурні проєкти</p>
-            </div>
-            <div class="stat-item">
-                <h2>03</h2>
-                <p>Правова підтримка</p>
-            </div>
-            <div class="stat-item">
-                <h2>04</h2>
-                <p>Міжнародне партнерство</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- НАПРЯМКИ ДІЯЛЬНОСТІ -->
     <section id="focus" class="features">
         <div class="section-title">
-            <h2>Наші ключові завдання</h2>
-            <div class="divider"></div>
+            <h2>Основні завдання</h2>
         </div>
         <div class="grid">
             <div class="card">
-                <h3>Екологія та Енергія</h3>
-                <p>Управління відходами, чиста енергія та водоочищення. Впровадження технологій, що зберігають ресурси громад.</p>
+                <h3>Екологічна безпека</h3>
+                <p>Управління відходами, чиста енергія та водоочищення для громад.</p>
             </div>
             <div class="card">
-                <h3>Муніципальний розвиток</h3>
-                <p>Модернізація медичної та муніципальної інфраструктури через залучення інвестиційних моделей.</p>
+                <h3>Правова підтримка</h3>
+                <p>Допомога громадянам у захисті їх інтересів та орієнтації в правовому полі.</p>
             </div>
             <div class="card">
-                <h3>Правова допомога</h3>
-                <p>Допомагаємо громадянам краще орієнтуватися в правових питаннях та захищати свої інтереси в складних ситуаціях.</p>
-            </div>
-            <div class="card">
-                <h3>Залучення інновацій</h3>
-                <p>Поєднуємо європейський досвід і стандарти з реальними потребами українських громад.</p>
+                <h3>Інвестиції в майбутнє</h3>
+                <p>Залучення міжнародних технологій та капіталу в муніципальну інфраструктуру.</p>
             </div>
         </div>
     </section>
 
-    <!-- ПАРТНЕРСТВО -->
+    <section class="unity-section" id="join">
+        <h2 style="font-size: 2.5rem; color: var(--primary);">Ми віримо у партнерство</h2>
+        <p style="font-size: 1.2rem; max-width: 800px; margin: 20px auto;">Ми працюємо з громадами, бізнесом і інституціями, створюючи проєкти, які є економічно життєздатними та корисними у довгостроковій перспективі.</p>
+        <a href="#contact" class="btn">Взяти участь у соціальних ініціативах</a>
+    </section>
+
     <section id="partnership">
-        <div class="section-title">
-            <h2>Міжнародне співробітництво</h2>
-            <div class="divider"></div>
-        </div>
-        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-            <p>Європейські країни для нас — це середовище міжнародних партнерств. Ми залучаємо технологічних, фінансових та інституційних партнерів для спільної реалізації проєктів в Україні.</p>
-            <p>Наш підхід базується на економічній життєздатності та масштабованості кожного проєкту.</p>
-        </div>
-    </section>
-
-    <!-- ДОЛУЧИТИСЯ -->
-    <section id="join" style="background-color: var(--dark); color: white; text-align: center; max-width: 100%;">
-        <h2>Готові змінити Україну на краще?</h2>
-        <p>Приєднуйтесь до наших ініціатив як партнер або волонтер.</p>
-        <br>
-        <a href="#contact" class="btn" style="background: var(--accent); color: var(--dark);">Взяти участь у соціальних ініціативах</a>
-    </section>
-
-    <!-- КОНТАКТИ -->
-    <section id="contact">
-        <div class="contact-container">
-            <div>
-                <div class="section-title" style="text-align: left;">
-                    <h2>Напиши нам</h2>
-                    <div class="divider" style="margin: 0;"></div>
-                </div>
-                <p>Ми завжди відкриті до нових ідей, пропозицій щодо партнерства та запитань від представників громад і бізнесу.</p>
-                <p>Заповніть форму, і наша команда зв'яжеться з вами найближчим часом.</p>
+        <div class="about-grid" style="direction: rtl;">
+            <div class="about-img" style="direction: ltr;">
+                <img src="photo_5420213672488930111_y.jpg" alt="Українська інфраструктура">
             </div>
-            <div class="form-card">
-                <form>
-                    <label>Ваше ім'я</label>
-                    <input type="text" placeholder="Ім'я або назва організації">
-                    
-                    <label>Контактний Email</label>
-                    <input type="email" placeholder="email@example.com">
-                    
-                    <label>Повідомлення</label>
-                    <textarea rows="5" placeholder="Ваша пропозиція або питання..."></textarea>
-                    
-                    <button type="submit" class="btn" style="width: 100%;">Відправити повідомлення</button>
-                </form>
+            <div class="about-content" style="direction: ltr;">
+                <h2>Європейський досвід</h2>
+                <p>Європейські країни — це середовище міжнародних партнерств. Ми залучаємо технологічних та фінансових партнерів для спільної реалізації проєктів в Україні, поєднуючи європейські стандарти з локальними потребами.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="background: var(--light); max-width: 100%;">
+        <div style="max-width: 1100px; margin: 0 auto;">
+            <div class="contact-container">
+                <div>
+                    <h2 style="color: var(--primary);">Напиши нам</h2>
+                    <p>Маєте ідею чи потребуєте підтримки громади? Наша команда готова до діалогу.</p>
+                    <p><strong>Ми будуємо майбутнє разом.</strong></p>
+                </div>
+                <div class="form-card">
+                    <form>
+                        <input type="text" placeholder="Ваше ім'я">
+                        <input type="email" placeholder="Ваш Email">
+                        <textarea rows="5" placeholder="Ваше повідомлення..."></textarea>
+                        <button type="submit" class="btn" style="width: 100%;">Відправити</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 </main>
 
 <footer>
-    <p>&copy; 2024 Громадська організація «Єдина-Україна»</p>
-    <p style="font-size: 0.8rem; margin-top: 10px;">Побудова екосистеми інновацій та розвитку громад.</p>
+    <span class="footer-logo">ЄДИНА-УКРАЇНА</span>
+    <p>Громадська організація &copy; 2024</p>
+    <p style="opacity: 0.6; font-size: 0.8rem;">Створено для розвитку та підтримки українських громад</p>
 </footer>
 
 </body>
